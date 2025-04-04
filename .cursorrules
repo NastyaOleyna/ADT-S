@@ -1,0 +1,32 @@
+Code Style and Structure
+  - Write clear, beginner-friendly TypeScript code using the Vue Options API.
+  - Avoid overengineering; prefer straightforward, maintainable solutions.
+  - Use modular components for clarity and reusability.
+  - Use descriptive and intuitive variable names (e.g., `searchText`, `filteredArtworks`).
+  - Organize files logically (e.g., components, assets, helpers, types).
+
+Naming Conventions
+  - Use lowercase with dashes for directory names (e.g., `components/gallery`).
+  - Prefer named exports for helpers and utility functions.
+
+Javascript Usage
+  - Avoid complex generics and advanced JavaScript features to keep the code accessible.
+
+Syntax and Formatting
+  - Use the Vue Options API (`export default {}`) for components.
+  - Follow consistent formatting rules (e.g., 2 spaces for indentation).
+  - Keep methods and logic simple and readable.
+
+UI and Styling
+  - Use vanilla CSS for styling, focusing on simplicity and clarity.
+  - Implement a responsive grid layout for the gallery using CSS Flexbox.
+  - Use hover effects for interactive elements like card expansion.
+  - Follow a mobile-first approach for responsiveness.
+
+Performance Optimization
+  - Use basic image optimization techniques, such as lazy loading for gallery images.
+  - Avoid unnecessary computations in methods and watchers.
+
+Project Conventions
+  - Focus on delivering core features: search, category filter, paginated grid gallery, and hover effects.
+  - Ensure the application is intuitive and easy to navigate for users.

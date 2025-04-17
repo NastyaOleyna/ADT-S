@@ -7,6 +7,7 @@
   font-style: normal;
 }
 
+
 /* Bold */
 @font-face {
   font-family: 'Saans-Bold';
@@ -57,11 +58,13 @@
   line-height: 1.23;
   font-weight: 670;
 
-  font-size: 1px;
+  font-size: 0.9px;
+  /* font-size: 6%; */
 
   color-scheme: light dark;
   color: rgba(0, 0, 0, 1);
-  background-color: #ebebeb;
+  /* background-color: #ebebeb; */
+  background-color: white;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -69,12 +72,20 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  color: #646cff;
-  text-decoration: inherit;
+.small-text{
+ font-size: 14rem;
 }
+
+a {
+  color: black;
+  /* text-decoration: inherit; */
+  transition: opacity 0.5s ease;
+}
+
 a:hover {
-  color: #535bf2;
+  /* color: #535bf2; */
+  opacity: 0.7;
+  
 }
 
 body {
@@ -85,33 +96,36 @@ body {
   /* align-items: start; */
   /* justify-content: start; */
   /* min-width: 320px; */
-  font-family: 'Saans-SemiBold', sans-serif;
+  font-family: 'Saans-SemiBold', sans-serif !important;
   min-height: 100vh;
-  background-color: #fff;
+
   overflow-x: hidden;
+
+  
 }
 
 h1 {
-  font-family: 'Saans-SemiBold', sans-serif;
+  /* font-family: 'Saans-SemiBold', sans-serif; */
   font-size: 3em;
   line-height: 1;
 }
 
 p {
-  font-family: 'Saans-SemiBold', sans-serif;
-  text-indent: 2em;
+  font-family: inherit;
   margin-bottom: 1em;
 }
 
 button {
-  font-family: 'Saans-SemiBold', sans-serif;
+  /* font-family: 'Saans-SemiBold', sans-serif; */
+  font-family: inherit;
   border: none;
   font-weight: inherit;
   background-color: #000000;
-  cursor: pointer;
 }
+
 button:hover {
 }
+
 button:focus,
 button:focus-visible {
   /* outline: 4px auto -webkit-focus-ring-color; */
@@ -125,13 +139,64 @@ button:focus-visible {
   /* max-width: 1280px; */
   margin: 0 auto;
   width: 100%;
+  overflow-x: hidden;
   /* padding: 2rem; */
   /* text-align: center; */
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #000000;
-    background-color: #ffffff;
+    /* color: #000000; */
+    /* background-color: #ffffff; */
+    background-color: transparent;
   }
 }
+
+@media screen and (max-width: 640px) {
+  :root {
+    font-size: 0.65px;
+  }
+}
+
+/* Page Transition Styles */
+.menu {
+  z-index: 100;
+  position: relative;
+}
+
+main {
+  transition: opacity var(--transition-duration, 500ms) var(--transition-easing, ease);
+}
+
+/* Ensure transitions are smooth */
+* {
+  transition-property: opacity;
+  transition-duration: var(--transition-duration, 500ms);
+  transition-timing-function: var(--transition-easing, ease);
+}
+
+/* Fade out content during page transitions */
+body.page-transitioning main {
+  opacity: 0 !important;
+}
+
+/* Target button during transition */
+body.page-transitioning .button-active {
+  background-color: var(--color-pink-primary) !important;
+  color: black !important;
+  transition: none !important; /* Prevent transition when active state is applied */
+}
+
+/* Previously active buttons fade to black */
+body.page-transitioning .menu-button:not(.button-active) {
+  background-color: black !important;
+  color: white !important;
+  transition: background-color var(--transition-duration, 500ms) var(--transition-easing, ease), 
+              color var(--transition-duration, 500ms) var(--transition-easing, ease) !important;
+}
+
+/* Global transition exempt class */
+.transition-exempt {
+  transition: none !important;
+}
+

@@ -3,17 +3,32 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "packageManager": "pnpm@10.6.2",
   "scripts": {
     "dev": "vite --host",
+    "dev:https": "vite --host --https",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "preview:https": "vite preview --https",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@storyblok/vue": "^8.1.11",
     "vue": "^3.5.13",
-    "vue-router": "4"
+    "vue-router": "4.5.0"
   },
   "devDependencies": {
+    "@vitejs/plugin-basic-ssl": "^2.0.0",
     "@vitejs/plugin-vue": "^5.2.1",
-    "vite": "^6.0.2"
+    "gh-pages": "^6.3.0",
+    "vite": "^6.2.1"
+  },
+  "pnpm": {
+    "ignoredBuiltDependencies": [
+      "esbuild"
+    ],
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
   }
 }

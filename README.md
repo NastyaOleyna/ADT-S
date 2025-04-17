@@ -63,6 +63,7 @@ ADT-VUE/
 - Category filtering
 - Hover effects for gallery items
 - Mobile-first design approach
+- Consistent page transitions across the application
 
 ## Technology Stack
 
@@ -70,6 +71,34 @@ ADT-VUE/
 - Vue Router for navigation
 - Vite for build tooling
 - CSS (with Flexbox for layout)
+
+## Navigation System
+
+The application uses a centralized navigation system via the `NavigationManager` class to ensure consistent transition behaviors across all pages:
+
+- All internal navigation is handled through the `navigationManager.navigateTo()` method
+- Page transitions use a consistent fade effect with configurable timing
+- The system prevents multiple navigation attempts during transitions
+- Transitions are applied uniformly across menu navigation, button clicks, and component interactions
+- Smooth scroll-to-top is synchronized with fade-out transitions, ensuring the menu stays aligned during navigation
+
+### Navigation Features
+
+- **Synchronized Transitions**: Content fades out while simultaneously scrolling to the top
+- **Fixed Menu**: The menu stays in place during transitions for a seamless user experience
+- **GPU Acceleration**: All transitions use hardware acceleration for smooth performance
+- **Subtle Animation**: Content has a subtle lift effect during transitions
+
+### Navigation Usage
+
+To navigate within the application, use:
+
+```js
+import navigationManager from '../utils/navigationManager';
+
+// Inside component methods
+navigationManager.navigateTo(router, '/target-path');
+```
 
 ## Contributing
 

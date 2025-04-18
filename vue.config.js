@@ -1,3 +1,3 @@
 module.exports = {
-    publicPath: '/ADT-S/',
+    publicPath: '/ADT-S-VUE/',
 };
